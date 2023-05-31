@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'greatkart',
+    'category',
+    'accounts',
+    'store',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'category.context_processors.category_menu_links',
             ],
         },
     },
@@ -80,6 +84,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
@@ -100,6 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL  = 'accounts.CustomUserModel'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -121,6 +127,9 @@ STATICFILES_DIRS =[
     str(BASE_DIR.joinpath('static')),
 ]
 STATIC_ROOT = BASE_DIR.joinpath('staticfiles_dirs')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT= BASE_DIR /'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
